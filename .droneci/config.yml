@@ -31,11 +31,10 @@ steps:
   - cd /tmp/sdsl-lite-build
   - cmake /drone/src/sdsl-lite
   - make install
-  - export CXXFLAGS="-O3 -pipe -stdlib=libc++ -fcolor-diagnostics -fPIC"
-  - export CFLAGS="-O3 -pipe -fcolor-diagnostics -fPIC"
+  - export CXXFLAGS="-O3 -pipe -stdlib=libstdc++ -fcolor-diagnostics -fPIC"
+  - export CFLAGS="-O3 -pipe -stdlib=libgcc -fcolor-diagnostics -fPIC"
   - cd /drone/src/pybind11
   - pip install --no-binary ':all:' --no-cache-dir . --verbose
-  - export CXXFLAGS="-O3 -pipe -fcolor-diagnostics -static-libgcc -static-libstdc++ -fPIC -lpthread  -Wl,-Bstatic -Wl,-Bdynamic"
   - cd /drone/src
   - pip wheel --no-binary ':all:' --no-cache-dir -w dist . --verbose
   - cp -r . /tmp/cache
@@ -108,15 +107,14 @@ steps:
   - cd /tmp/libdivsufsort-build
   - cmake -D BUILD_SHARED_LIBS=OFF /drone/src/libdivsufsort
   - make install
-  - export CXXFLAGS="-O3 -pipe -fcolor-diagnostics -static-libgcc -static-libstdc++ -fPIC -lpthread  -Wl,-Bstatic -Wl,-Bdynamic"
+  - export CXXFLAGS="-O3 -pipe -fcolor-diagnostics -static-libgcc -static-libstdc++ -fPIC -lpthread -Wl,-Bstatic -Wl,-Bdynamic"
   - cd /tmp/sdsl-lite-build
   - cmake /drone/src/sdsl-lite
   - make install
-  - export CXXFLAGS="-O3 -pipe -stdlib=libc++ -fcolor-diagnostics -fPIC"
-  - export CFLAGS="-O3 -pipe -fcolor-diagnostics -fPIC"
+  - export CXXFLAGS="-O3 -pipe -stdlib=libstdc++ -fcolor-diagnostics -fPIC"
+  - export CFLAGS="-O3 -pipe -stdlib=libgcc -fcolor-diagnostics -fPIC"
   - cd /drone/src/pybind11
   - python3.4 -m pip install --no-binary ':all:' --no-cache-dir . --verbose
-  - export CXXFLAGS="-O3 -pipe -fcolor-diagnostics -static-libgcc -static-libstdc++ -fPIC -lpthread  -Wl,-Bstatic -Wl,-Bdynamic"
   - cd /drone/src
   - python3.4 -m pip wheel --no-binary ':all:' --no-cache-dir -w dist . --verbose
   - cp -r . /tmp/cache
