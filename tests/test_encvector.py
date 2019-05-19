@@ -16,7 +16,7 @@ def test_encvector(Type):
     assert v.size_in_bytes < 200
 
 
-@pytest.mark.skip(reason="Issue #16")
+# @pytest.mark.skip(reason="Issue #16")
 @pytest.mark.parametrize("Type", [pysdsl.DirectAccessibleCodesVectorDP,
                                   pysdsl.DirectAccessibleCodesVectorDPRRR])
 def test_encvectordp(Type):
