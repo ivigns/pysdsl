@@ -111,8 +111,8 @@ steps:
   - cd /tmp/sdsl-lite-build
   - cmake /drone/src/sdsl-lite
   - make install
-  - export CXXFLAGS="-O3 -pipe -stdlib=libstdc++ -fcolor-diagnostics -fPIC"
-  - export CFLAGS="-O3 -pipe -stdlib=glibc -fcolor-diagnostics -fPIC"
+  - export CXXFLAGS="-O3 -pipe -std=gnu++14 -fcolor-diagnostics -fPIC"
+  - export CFLAGS="-O3 -pipe -std=gnu11 -fcolor-diagnostics -fPIC"
   - cd /drone/src/pybind11
   - python3.4 -m pip install --no-binary ':all:' --no-cache-dir . --verbose
   - cd /drone/src
